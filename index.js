@@ -59,6 +59,12 @@ async function run() {
             const result = await serviceCollection.deleteOne(filter);
             res.send(result)
         })
+        // post data 
+        app.post('/service', async (req, res) => {
+            const query = req.body
+            const result = await serviceCollection.insertOne(query)
+            res.send(result)
+        })
 
     }
     finally {
